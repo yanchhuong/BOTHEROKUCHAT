@@ -4,6 +4,8 @@ var builder = require('botbuilder');
 // =========================================================
 // Bot Setup
 // =========================================================
+
+var inMemoryStorage = new builder.MemoryBotStorage();
 // Setup Restify Server
 // Listen for any activity on port 3978 of our local server
 var server = restify.createServer();
@@ -15,7 +17,7 @@ var connector = new builder.ChatConnector({
  appId: process.env.MICROSOFT_APP_ID,
  appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
-var bot = new builder.UniversalBot(connector);
+var bot = new builder.UniversalBot(connector).set('storage', inMemoryStorage); // Register in memory storage;
 // If a Post request is made to /api/messages on port 3978 of our local server, then we pass it to the bot connector to handle
 server.post('/api/messages', connector.listen());
 // =========================================================
