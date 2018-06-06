@@ -59,7 +59,7 @@ var connector = new builder.ChatConnector({
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 var bot = new builder.UniversalBot(connector).set('storage', inMemoryStorage); // Register in memory storage;
-server.post('/api/messages', connector.listen());
+server.get('/api/messages', connector.listen());
 
 //=========================================================
 // Bots Middleware
