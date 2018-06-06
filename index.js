@@ -365,5 +365,5 @@ bot.dialog('/weather', [
     function (session, args) {
         session.endDialog("The weather in %s is 71 degrees and raining.", args.data);
     }
-]);");
-});
+]);
+bot.beginDialogAction('weather', '/weather');   // <-- no 'matches' option means this can only be triggered by a button.
