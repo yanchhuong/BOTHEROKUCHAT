@@ -19,9 +19,9 @@ var bot = new builder.UniversalBot(connector);
 // If a Post request is made to /api/messages on port 3978 of our local server, then we pass it to the bot connector to handle
 server.post('/api/messages', connector.listen());
 // =========================================================
-/=========================================================
-// Bots Middleware
-//=========================================================
+// Bots Dialogs 
+// =========================================================
+
 
 // Anytime the major version is incremented any existing conversations will be restarted.
 bot.set(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
@@ -363,4 +363,5 @@ bot.dialog('/weather', [
     function (session, args) {
         session.endDialog("The weather in %s is 71 degrees and raining.", args.data);
     }
-]);
+]);");
+});
