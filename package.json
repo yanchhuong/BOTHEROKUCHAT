@@ -4,7 +4,8 @@
   "description": "chat",
   "main": "index.js",
   "scripts": {
-    "test": "hello world"
+    "test": "hello world",
+	"start" : "node index.js" <<-- add this line!
   },
   "repository": {
     "type": "git",
