@@ -14,6 +14,7 @@ var chat= index();
 var app = express();
 
 // Start listening
-app.listen(config.PORT, function() {
+/*app.listen(config.PORT, function() {
   console.log(colors.green('Listening with ' + process.env.NODE_ENV + ' config on port ' + config.PORT));
 });
+*/
