@@ -8,7 +8,7 @@ var express = require('./config/express');
 var colors = require('colors');
 var index = require('./index');
 
-var chat= index();
+//var chat= index();
 
 // Create server
 var app = express();
