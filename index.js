@@ -1,6 +1,8 @@
 // Reference the packages we require so that we can use them in creating the bot
 var restify = require('restify');
 var builder = require('botbuilder');
+
+var config = require('./config/config');
 // =========================================================
 // Bot Setup
 // =========================================================
@@ -9,11 +11,10 @@ var inMemoryStorage = new builder.MemoryBotStorage();
 
 var initApp = function() {
 	
-	console.log("bot0");
 // Setup Restify Server
 // Listen for any activity on port 3978 of our local server
 var server = restify.createServer();
- server.listen(process.env.port || process.env.PORT || 3978, function () {
+ server.listen(process.env.port || process.env.PORT || config.PORT, function () {
  console.log('%s listening to %s', server.name, server.url);
 });
 
