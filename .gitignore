@@ -1,1 +1,7 @@
 node_modules/
+*log
+*swp
+
+public/vendor
+temp
+.vscode/

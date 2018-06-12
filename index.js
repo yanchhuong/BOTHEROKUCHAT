@@ -6,12 +6,18 @@ var builder = require('botbuilder');
 // =========================================================
 
 var inMemoryStorage = new builder.MemoryBotStorage();
+
+var initApp = function() {
+	
+	console.log("bot0");
 // Setup Restify Server
 // Listen for any activity on port 3978 of our local server
 var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
+ server.listen(process.env.port || process.env.PORT || 3978, function () {
  console.log('%s listening to %s', server.name, server.url);
 });
+
+
 // Create chat bot
 var connector = new builder.ChatConnector({
  appId: process.env.MICROSOFT_APP_ID,
@@ -23,7 +29,6 @@ server.post('/api/messages', connector.listen());
 // =========================================================
 // Bots Dialogs 
 // =========================================================
-
 
 // Anytime the major version is incremented any existing conversations will be restarted.
 bot.set(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i }));
@@ -367,3 +372,5 @@ bot.dialog('/weather', [
     }
 ]);
 bot.beginDialogAction('weather', '/weather');   // <-- no 'matches' option means this can only be triggered by a button.
+}
+module.exports = initApp;
