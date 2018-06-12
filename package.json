@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "bower install",
     "test": "hello world",
-	"start:dev": "nodemon server.js"
+	"start": "node server.js"
   },
   "repository": {
     "type": "git",
